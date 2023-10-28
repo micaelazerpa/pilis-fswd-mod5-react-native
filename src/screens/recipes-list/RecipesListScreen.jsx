@@ -3,10 +3,16 @@ import { useEffect, useState } from "react";
 import { FlatList, Image, Pressable, SafeAreaView, Text, View } from "react-native";
 import { styles } from "./RecipesListScreen.styles";
 import { getRecipeList } from "../../api/recipe.service";
+import { SearchBar } from "../../components/search-bar/SearchBar";
 
-
-export const RecipesListScreen = () => {
+export const RecipesListScreen = ({navigation}) => {
     const [recipeList, setRecipeList] = useState([]);
+    const [searchQuery, setSearchQuery]= useState('')
+
+    const handleSearch = (query)=>{
+        setSearchQuery(query)
+    }
+    const filterRecipe = recipeList.filter(recipe => (recipe.name.toLowerCase().includes(searchQuery.toLowerCase())))
 
     useEffect(() => {
         getRecipeList().then(data => {
@@ -14,9 +20,10 @@ export const RecipesListScreen = () => {
           })
         .catch(err => console.log(err))
     }, []);
-
+    //console.log('---------------------en lista', recipeList)
+       
     const recipes = ( {item}) => (
-        <Pressable>
+        <Pressable onPress={()=> navigation.navigate('Detalle', {item})}>
             <View style={styles.itemContainer}>
                 <Image
                     source={{ uri:item.image }}
@@ -30,9 +37,10 @@ export const RecipesListScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <SearchBar handleSearch={handleSearch} searchQuery={searchQuery}/>
              <Text> Lista de recetas</Text>
             <FlatList
-                data={recipeList}
+                data={filterRecipe}
                 renderItem={recipes}
                 keyExtractor={(item) => item.id}
                 style={styles.itemList}
