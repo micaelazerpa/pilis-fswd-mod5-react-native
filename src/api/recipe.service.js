@@ -13,4 +13,20 @@ export const getRecipeList = async () => {
   } catch {
     throw new Error('could not fetch recipes')
   }
-}
+};
+
+export const postRecipe = async (newRecipe) => {
+  try {
+    const response = await fetch(SERVICE_ENDPOINT, {
+        method: 'POST',
+        headers: {'content-type':'application/json'},
+        // Send your data in the request body as JSON
+        body: JSON.stringify(newRecipe)
+      })  
+    const objresponse= await response.json()
+    return objresponse
+    
+  } catch {
+    throw new Error('could not fetch recipes')
+  }
+};

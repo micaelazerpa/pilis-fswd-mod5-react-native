@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     marginVertical: 20,
     borderRadius: 10
   },
-  webButton: {
+  button: {
     textAlign: 'center',
     backgroundColor: COLORS.primary,
     color: COLORS.white,

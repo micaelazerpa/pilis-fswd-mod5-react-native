@@ -33,9 +33,14 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     marginHorizontal: 10
   },
-  itemPrice: {
-    marginTop: 5,
-    marginBottom: 10,
-    marginHorizontal: 10
+  button: {
+    textAlign: 'center',
+    backgroundColor: COLORS.primary,
+    color: COLORS.white,
+    borderRadius: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    width: 100,
+    marginTop: 10
   }
 })

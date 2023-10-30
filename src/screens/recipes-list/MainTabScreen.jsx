@@ -23,7 +23,7 @@ const screenOption = ({ route }) => {
     ),
     tabBarActiveTintColor: COLORS.primary,
     tabBarInactiveTintColor: COLORS.inactive,
-    //headerShown: false,
+    headerShown: false,
     tabBarStyle: styles.tabBar
   }
 }
@@ -32,7 +32,7 @@ export const MainTabScreen = () => {
   return (
     <Tab.Navigator screenOptions={screenOption}>
       <Tab.Screen name="Home" options={{ title: 'Inicio' }} component={HomeScreen} />
-      <Tab.Screen name="Explorer" options={{ title: 'Explorar' }} component={RecipesListScreen} />
+      <Tab.Screen name="Explorer" options={{ title: 'Recetas' }} component={RecipesListScreen} />
       <Tab.Screen name="Profile" options={{ title: 'Perfil' }} component={ProfileScreen} />
     </Tab.Navigator>
   );

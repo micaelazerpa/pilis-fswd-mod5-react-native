@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
+import { UserContext } from "../../contexts/UserContext";
 import { useEffect, useState } from "react";
 import { FlatList, Image, Pressable, SafeAreaView, Text, View } from "react-native";
 import { styles } from "./RecipesListScreen.styles";
 import { getRecipeList } from "../../api/recipe.service";
 import { SearchBar } from "../../components/search-bar/SearchBar";
+import { Link } from "@react-navigation/native";
 
 export const RecipesListScreen = ({navigation}) => {
     const [recipeList, setRecipeList] = useState([]);
-    const [searchQuery, setSearchQuery]= useState('')
+    const [searchQuery, setSearchQuery]= useState('');
+    
+    const { currentUser, setCurrentUser } = useContext(UserContext)
 
     const handleSearch = (query)=>{
         setSearchQuery(query)
@@ -38,7 +42,15 @@ export const RecipesListScreen = ({navigation}) => {
     return (
         <SafeAreaView style={styles.container}>
             <SearchBar handleSearch={handleSearch} searchQuery={searchQuery}/>
-             <Text> Lista de recetas</Text>
+            <View>
+                <Text> ¿Quieres crear una receta?</Text>
+                {currentUser && (
+                        <Link style={styles.button} to={{screen: 'RecipeCreate'}}>
+                        Crear receta
+                    </Link>
+                    )}
+            </View>
+             
             <FlatList
                 data={filterRecipe}
                 renderItem={recipes}
