@@ -1,13 +1,15 @@
 import React, {useContext} from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { styles } from "./RecipeDetailScreen.styles";
 import { Link } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native'
 
 export const RecipeDetailScreen=({route})=>{
     const {item} = route.params
+    const navigation = useNavigation()
     const { currentUser, setCurrentUser } = useContext(UserContext)
-
+    //console.log('item---------------',item)
     return(
         <ScrollView style={styles.container}>
             
@@ -17,11 +19,17 @@ export const RecipeDetailScreen=({route})=>{
                 </ScrollView>
             </View>
             <View>
-                {currentUser && (
+            <TouchableOpacity 
+                style={styles.button} 
+                onPress={()=> navigation.navigate('RecipeEdit', {item})}
+                keyExtractor={(item) => item.id}>
+                <Text style={styles.buttonText} >Editar</Text>
+            </TouchableOpacity>
+                {/* {currentUser && ( 
                     <Link style={styles.button} to={{screen: 'RecipeEdit', params:{item}}}>
                     Editar receta
                 </Link>
-                )}
+                 )} */}
                 
             </View>
             <View>

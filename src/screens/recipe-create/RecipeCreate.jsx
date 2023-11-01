@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import { useForm, Controller } from 'react-hook-form'
 import { styles } from './RecipeCreate.styles'
@@ -52,8 +52,8 @@ export const RecipeCreate = () => {
                 {errors.name && <Text style={styles.errorText}>{errors.name.message}</Text>}
             </View>
             <View style={styles.content}>
-            <Text style={styles.subTitle}>Ingrese una breve descripción de la receta</Text>
-                
+                <Text style={styles.subTitle}>Ingrese una breve descripción de la receta</Text>
+
                 <Controller
                     control={control}
                     render={({ field: { onChange, onBlur, value } }) => (
@@ -72,7 +72,7 @@ export const RecipeCreate = () => {
                 {errors.description && <Text style={styles.errorText}>{errors.description.message}</Text>}
             </View>
             <View style={styles.content}>
-            <Text style={styles.subTitle}>Ingrese la url de la receta</Text>
+                <Text style={styles.subTitle}>Ingrese la url de la imagen de la receta</Text>
 
                 <Controller
                     control={control}
@@ -92,7 +92,7 @@ export const RecipeCreate = () => {
                 {errors.image && <Text style={styles.errorText}>{errors.image.message}</Text>}
             </View>
             <View style={styles.content}>
-            <Text style={styles.subTitle}>Ingrese los ingredientes de la receta</Text>
+                <Text style={styles.subTitle}>Ingrese los ingredientes de la receta</Text>
 
                 <Controller
                     control={control}
@@ -127,12 +127,12 @@ export const RecipeCreate = () => {
                         />
                     )}
                     name='preparation'
-                    rules={{ required: 'El nombre de la receta es requerido' }}
+                    rules={{ required: 'Los pasos de la receta es requerido' }}
                 />
                 {errors.preparation && <Text style={styles.errorText}>{errors.preparation.message}</Text>}
             </View>
             <View style={styles.content}>
-            <Text style={styles.subTitle}>Ingrese el tiempo que lleva la realizar la receta</Text>
+                <Text style={styles.subTitle}>Ingrese el tiempo que lleva la realizar la receta</Text>
 
                 <Controller
                     control={control}

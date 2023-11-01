@@ -47,13 +47,21 @@ export const styles = StyleSheet.create({
     borderRadius: 10
   },
   button: {
-    textAlign: 'center',
+    flex:1,
+    textAlign:'center',
+    justifyContent: 'center',
     backgroundColor: COLORS.primary,
     color: COLORS.white,
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    width: 100,
+    width: 150,
     marginTop: 10
-  }
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    textAlign:'center',
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
 })

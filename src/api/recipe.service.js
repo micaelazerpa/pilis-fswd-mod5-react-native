@@ -11,7 +11,7 @@ export const getRecipeList = async () => {
     return objresponse
     
   } catch {
-    throw new Error('could not fetch recipes')
+    throw new Error('No se pudo traer la lista de recetas')
   }
 };
 
@@ -27,6 +27,21 @@ export const postRecipe = async (newRecipe) => {
     return objresponse
     
   } catch {
-    throw new Error('could not fetch recipes')
+    throw new Error('No se pudo crear una receta')
+  }
+};
+
+export const putRecipe = async (id,updateRecipe) => {
+  try {
+    const response = await fetch(`${SERVICE_ENDPOINT}/${id}`, {
+      method: 'PUT', // or PATCH
+      headers: {'content-type':'application/json'},
+      body: JSON.stringify(updateRecipe)
+    })  
+    const objresponse= await response.json()
+    return objresponse
+    
+  } catch {
+    throw new Error('No se pudo sctualizar una receta')
   }
 };

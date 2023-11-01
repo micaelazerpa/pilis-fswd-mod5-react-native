@@ -30,9 +30,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 5
   },
-  inputText:{
-    height: 80,
-  },
   errorText: {
     color: 'red',
     marginBottom: 8
@@ -50,12 +47,5 @@ export const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: 'bold'
-  },
-  image: {
-    borderRadius: 40,
-    height: 300,
-    width: 200,
-    marginLeft:'25%',
-    marginRight:'25%'
   }
 })
