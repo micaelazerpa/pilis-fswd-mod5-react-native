@@ -50,8 +50,8 @@ export const styles = StyleSheet.create({
   },
   image: {
     borderRadius: 40,
-    height: 300,
-    width: 200,
+    height: 350,
+    width: 300,
     marginLeft:'auto',
     marginRight:'auto'
   }

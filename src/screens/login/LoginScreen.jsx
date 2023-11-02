@@ -39,7 +39,7 @@ export const LoginScreen = () => {
             <View>
                 <Image
                     style={styles.image}
-                    source={require('../../../assets/login.jpg')}
+                    source={require('../../../assets/login.png')}
                 />
                 <Text style={styles.title}> Inicio de Sesión </Text>
 
