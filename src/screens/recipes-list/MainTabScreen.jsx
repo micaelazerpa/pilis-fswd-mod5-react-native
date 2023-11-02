@@ -44,9 +44,5 @@ const styles = StyleSheet.create({
     height: SPACING.xxxl,
     paddingBottom: SPACING.xs,
     paddingTop: SPACING.xs
-    /* flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center', */
   }
 });

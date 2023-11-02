@@ -7,6 +7,13 @@ export const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight,
     backgroundColor: COLORS.grey
   },
+  title:{
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginHorizontal: 10,
+    fontSize:18,
+    textAlign:'center'
+  },
   itemContainer: {
     flex: 1,
     width: Dimensions.get('screen').width - 20,
@@ -14,10 +21,10 @@ export const styles = StyleSheet.create({
     overflow: 'hidden',
     marginBottom: 10,
     backgroundColor: COLORS.white,
-    elevation: 3,
-    shadowColor: '#000',
+    elevation: 5,
+    shadowColor: COLORS.primary,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.3,
     shadowRadius: 2
   },
   itemList: {
@@ -26,12 +33,19 @@ export const styles = StyleSheet.create({
   itemImage: {
     height: 200,
     width: '100%',
-    resizeMode: 'cover'
+    resizeMode: 'cover',
   },
   itemTitle: {
     fontWeight: 'bold',
     marginTop: 10,
-    marginHorizontal: 10
+    marginHorizontal: 10,
+    fontSize:18
+  },
+  text:{
+    marginTop: 10,
+    marginHorizontal: 10,
+    marginBottom:20,
+    fontSize:15
   },
   button: {
     textAlign: 'center',
@@ -40,7 +54,12 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 8,
-    width: 100,
-    marginTop: 10
+    width: 160,
+    marginTop: 10,
+    marginBottom:10,
+    fontWeight: 'bold',
+    fontSize:18,    
+    marginLeft:'auto',
+    marginRight:'auto'
   }
 })

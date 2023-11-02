@@ -14,49 +14,56 @@ export const styles = StyleSheet.create({
     width: Dimensions.get('screen').width,
     height: 300
   },
-  textContainer: {
-    padding: 20
+  intro:{
+    padding:10,
+    marginLeft:10,
+    marginBottom:20
+  },
+  fondo:{
+    backgroundColor:COLORS.secondary,
+    borderRadius:10,
+    marginTop:10
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10
   },
-  price: {
+  itemTitle: {
     fontSize: 20,
-    color: '#444',
-    marginBottom: 5
+    fontWeight: 'bold',
+    marginBottom: 10
   },
-  ratingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  rating: {
-    marginLeft: 8,
-    color: COLORS.text,
-    fontSize: FONT_SIZE.md
+  itemContainer: {
+    width: Dimensions.get('screen').width - 20,
+    borderRadius: 20,
+    overflow: 'hidden',
+    marginBottom: 10,
+    backgroundColor: COLORS.white,
+    elevation: 3,
+    shadowColor:COLORS.primary,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    padding:10,
+    marginLeft:10
   },
   description: {
     fontSize: 18,
     lineHeight: 26,
     marginTop: 10
   },
-  map: {
-    height: 250,
-    marginVertical: 20,
-    borderRadius: 10
-  },
   button: {
-    flex:1,
-    textAlign:'center',
-    justifyContent: 'center',
     backgroundColor: COLORS.primary,
     color: COLORS.white,
     borderRadius: 20,
     paddingHorizontal: 10,
     paddingVertical: 8,
     width: 150,
-    marginTop: 10
+    marginTop: 10,
+    marginLeft:'auto',
+    marginRight:'auto',
+    marginBottom:10
   },
   buttonText: {
     color: '#FFFFFF',

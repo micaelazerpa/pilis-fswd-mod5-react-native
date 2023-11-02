@@ -1,45 +1,53 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { styles } from "./RecipeDetailScreen.styles";
-import { Link } from "@react-navigation/native";
+import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native'
 
-export const RecipeDetailScreen=({route})=>{
-    const {item} = route.params
+export const RecipeDetailScreen = ({ route }) => {
+    const { item } = route.params
     const navigation = useNavigation()
     const { currentUser, setCurrentUser } = useContext(UserContext)
     //console.log('item---------------',item)
-    return(
+    return (
         <ScrollView style={styles.container}>
-            
-            <View style={styles.container}>
+
+            <View>
                 <ScrollView horizontal pagingEnabled style={styles.imageContainer}>
-                    <Image source={{ uri:item.image }} style={styles.image}/>
+                    <Image source={{ uri: item.image }} style={styles.image} />
                 </ScrollView>
             </View>
-            <View>
-            <TouchableOpacity 
-                style={styles.button} 
-                onPress={()=> navigation.navigate('RecipeEdit', {item})}
-                keyExtractor={(item) => item.id}>
-                <Text style={styles.buttonText} >Editar</Text>
-            </TouchableOpacity>
-                {/* {currentUser && ( 
-                    <Link style={styles.button} to={{screen: 'RecipeEdit', params:{item}}}>
-                    Editar receta
-                </Link>
-                 )} */}
-                
-            </View>
-            <View>
+
+            <View style={styles.fondo}>
                 <Text style={styles.title}> {item.name}</Text>
+
+            </View>
+            <View style={styles.intro}>
                 <Text style={styles.description}>{item.description}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+                <Text style={styles.itemTitle}>Ingredientes:</Text>
                 <Text style={styles.description}>{item.ingredients}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+                <Text style={styles.itemTitle}>Preparación:</Text>
                 <Text style={styles.description}>{item.preparation}</Text>
+            </View>
+            <View style={styles.itemContainer}>
+                <Text style={styles.itemTitle}>Tiempo estimado de preparación:</Text>
                 <Text style={styles.description}>{item.time}</Text>
             </View>
-            
+            <View>
+                {currentUser && (
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => navigation.navigate('RecipeEdit', { item })}
+                        keyExtractor={(item) => item.id}>
+                        <Text style={styles.buttonText} ><Ionicons name="pencil-outline" size={24} color="white" />  Editar</Text>
+                    </TouchableOpacity>
+                )}
+            </View>
         </ScrollView>
     )
 }

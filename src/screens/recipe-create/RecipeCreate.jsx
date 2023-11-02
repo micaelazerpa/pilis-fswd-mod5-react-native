@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { View, Text, TextInput, TouchableOpacity, ToastAndroid, ScrollView } from 'react-native'
 import { useForm, Controller } from 'react-hook-form'
 import { styles } from './RecipeCreate.styles'
 import { postRecipe } from '../../api/recipe.service'
@@ -19,19 +19,19 @@ export const RecipeCreate = () => {
     })
 
     const handleRecipe = (data) => {
-        console.log({ data })
         postRecipe(data)
             .then(data => {
                 console.log({ data })
-                navigation.navigate('Explorer')
+                ToastAndroid.show('Receta creada correctamente!', ToastAndroid.LONG, ToastAndroid.TOP);
+                navigation.navigate('Explorer',{reload:true})
             })
             .catch(err => console.warn(err))
     }
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
-            <Text style={styles.title}> Crea una Receta </Text>
+            <Text style={styles.title}> Crea una receta </Text>
             <View style={styles.content}>
                 <Text style={styles.subTitle}>Ingrese el nombre de la receta</Text>
                 <Controller
@@ -154,6 +154,6 @@ export const RecipeCreate = () => {
             <TouchableOpacity style={styles.button} onPress={handleSubmit(handleRecipe)}>
                 <Text style={styles.buttonText}>Crear</Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, SafeAreaView, Alert} from "react-native";
+import { View, Text, TextInput, TouchableOpacity, SafeAreaView, ToastAndroid} from "react-native";
 import { putRecipe } from "../../api/recipe.service";
 import { styles } from "./RecipeEdit.styles";
 import { useNavigation } from '@react-navigation/native'
@@ -25,30 +25,21 @@ export const RecipeEdit = ({ route }) => {
     };
     const handleSaveChanges = async () => {
         try {
-          await putRecipe(id, formData);
-    
-          Alert.alert("Éxito", "Receta editada con éxito.", [
-            {
-              text: "OK",
-              onPress: () => {setTimeout(() => { navigation.navigate("Recetas") }, 500);
-              },
-            },
-          ]);
+          const datos=await putRecipe(id, formData);
+          console.log('-datos traidos------------', datos)
+          ToastAndroid.show('Receta editada correctamente!', ToastAndroid.LONG, ToastAndroid.TOP);
+          navigation.navigate("Detalle",{item: datos}) 
         } catch (error) {
           console.error(
             "Error al editar la receta:",
             error.response
-          );
-          Alert.alert(
-            "Error",
-            "No se pudo editar, intenta nuevamente."
-          );
+          )
         }
       };
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}> Crea una Receta </Text>
+            <Text style={styles.title}> Edita la receta </Text>
             <View style={styles.content}>
                 <Text style={styles.subTitle}>Ingrese el nombre de la receta</Text>
                 <TextInput

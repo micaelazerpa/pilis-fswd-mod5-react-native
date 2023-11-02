@@ -12,6 +12,13 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#EFEFEF',
     borderBottomWidth: 1
   },
+  title: {
+    color:COLORS.text,
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 16
+  },
   profileImage: {
     width: 80,
     height: 80,
@@ -19,15 +26,18 @@ export const styles = StyleSheet.create({
     marginRight: 5
   },
   profileInfo: {
+    flex:1,
     justifyContent: 'center'
   },
   profileName: {
     fontSize: 24,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginTop:18
   },
   profileLocation: {
     fontSize: 16,
-    color: '#777'
+    color: '#777',
+    textAlign:'center'
   },
   content: {
     flex: 1,
@@ -44,21 +54,24 @@ export const styles = StyleSheet.create({
     lineHeight: 24
   },
   button: {
-    flex:1,
-    textAlign:'center',
-    justifyContent: 'center',
     backgroundColor: COLORS.primary,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
     marginTop: 15,
-    marginLeft: 10,
+    marginLeft: 'auto',
+    marginRight:'auto',
     height: 50,
-    width:90
+    width:120
   },
   buttonText: {
     color: COLORS.white,
     fontSize: 18,
     fontWeight: 'bold'
+  },
+  map: {
+    height: 250,
+    marginVertical: 20,
+    borderRadius: 10
   }
 })

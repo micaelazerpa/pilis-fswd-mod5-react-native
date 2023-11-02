@@ -7,12 +7,20 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
     marginTop: StatusBar.currentHeight
   },
+  content: {
+    gap: 10,
+    marginBottom:16
+  },
   title: {
     color:COLORS.text,
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
     textAlign: 'center'
+  },
+  subTitle: {
+    fontSize: 16,
+    color: COLORS.text,
   },
   input: {
     height: 50,
@@ -44,7 +52,7 @@ export const styles = StyleSheet.create({
     borderRadius: 40,
     height: 300,
     width: 200,
-    marginLeft:'25%',
-    marginRight:'25%'
+    marginLeft:'auto',
+    marginRight:'auto'
   }
 })
