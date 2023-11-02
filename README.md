@@ -10,6 +10,13 @@ El proyecto consta de una lista de recetas regionales de la provincia de Jujuy, 
 
 3. El usuario podrá crear y modificar una receta con los campos mínimos de la receta.
 
+**Nota:**
+Las acciones de crear y editar una receta solo están disponibles cuando el usuario inicia sesión
+Usuario registrado: 
+  username: fulanito
+  password: 12345 
+
+
 ## Recursos
 
 - https://mockapi.i
