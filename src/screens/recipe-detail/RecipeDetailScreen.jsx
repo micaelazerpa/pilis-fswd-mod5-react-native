@@ -36,7 +36,7 @@ export const RecipeDetailScreen = ({ route }) => {
             </View>
             <View style={styles.itemContainer}>
                 <Text style={styles.itemTitle}>Tiempo estimado de preparación:</Text>
-                <Text style={styles.description}>{item.time}</Text>
+                <Text style={styles.description}>{item.time} Horas</Text>
             </View>
             <View>
                 {currentUser && (
