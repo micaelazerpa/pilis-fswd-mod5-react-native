@@ -12,8 +12,9 @@ El proyecto consta de una lista de recetas regionales de la provincia de Jujuy, 
 
 **Nota:**
 Las acciones de crear y editar una receta solo están disponibles cuando el usuario inicia sesión
+
 Usuario registrado: 
-  username: fulanito
+  username: fulanito,
   password: 12345 
 
 
